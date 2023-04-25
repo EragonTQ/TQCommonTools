@@ -80,7 +80,12 @@ static inline UIWindow *keyWindow()
 + (instancetype)CreateTQSheetViewWithConfig:(TQSheetViewConfig *)config
 {
     TQSheetView *_sheetView = [[TQSheetView alloc] initWithFrame:[UIScreen mainScreen].bounds config:config];
-    [keyWindow() addSubview:_sheetView];
+     UIWindow *windows = [UIApplication sharedApplication].keyWindow;
+    if (!windows) {
+        windows = [UIApplication sharedApplication].windows.firstObject;
+    }
+    
+    [windows addSubview:_sheetView];
     
     return _sheetView;
 }
