@@ -33,7 +33,7 @@ static inline bool TQSheetKIsNotchScreen()
     }
 }
 
-static inline UIWindow *keyWindow()
+static inline UIWindow *TQ_keyWindow()
 {
     UIWindow *windows = [UIApplication sharedApplication].keyWindow;
     if (!windows) {
@@ -80,11 +80,9 @@ static inline UIWindow *keyWindow()
 + (instancetype)CreateTQSheetViewWithConfig:(TQSheetViewConfig *)config
 {
     TQSheetView *_sheetView = [[TQSheetView alloc] initWithFrame:[UIScreen mainScreen].bounds config:config];
-     UIWindow *windows = [UIApplication sharedApplication].keyWindow;
-    if (!windows) {
-        windows = [UIApplication sharedApplication].windows.firstObject;
-    }
-    
+     UIWindow *windows = TQ_keyWindow();
+     
+
     [windows addSubview:_sheetView];
     
     return _sheetView;
