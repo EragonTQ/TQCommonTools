@@ -14,7 +14,6 @@ Pod::Spec.new do |s|
         #s.resources = ""
         #s.resources = "TQCommonTools/**/*.xcassets"
         
- 
         s.dependency 'Masonry'
       
        
