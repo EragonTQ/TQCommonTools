@@ -8,26 +8,17 @@
 
 #import "TQLeftTextRightImgButton.h"
 
-@implementation TQLeftTextRightImgButton
+@interface NSString (TQSize)
+- (CGFloat)tq_getWidthWithFont:(UIFont *)font constrainedToSize:(CGSize)size;
+- (CGSize)tq_getSizeWithFont:(UIFont *)font paragraphStyle:(NSMutableParagraphStyle *)paragraphStyle;
+@end
 
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    CGFloat imageWidth = 0;
-    CGFloat titleWidth = 0;
-    if (self.currentImage) {
-        imageWidth = self.currentImage.size.width + _leftForText;
-        titleWidth = [self.currentTitle tq_getWidthWithFont:self.titleLabel.font constrainedToSize:CGSizeMake(CGFLOAT_MAX, 30)] + _rightFotImg;
-        [self setTitleEdgeInsets:UIEdgeInsetsMake(0, -imageWidth, 0, imageWidth)];
-        [self setImageEdgeInsets:UIEdgeInsetsMake(0, titleWidth, 0, -titleWidth)];
-    }
-    
-}
+@implementation NSString (TQSize)
 
 - (CGFloat)tq_getWidthWithFont:(UIFont *)font constrainedToSize:(CGSize)size
 {
-    return [self tq_getSizeWithFont:font constrainedToSize:size].width;
+    return [self tq_getSizeWithFont:font paragraphStyle:nil constrainedToSize:size].width;
+    
 }
 
 - (CGSize)tq_getSizeWithFont:(UIFont *)font paragraphStyle:(NSMutableParagraphStyle *)paragraphStyle constrainedToSize:(CGSize)size
@@ -51,6 +42,28 @@
     return resultSize;
 }
 
+@end
+
+
+@implementation TQLeftTextRightImgButton
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    CGFloat imageWidth = 0;
+    CGFloat titleWidth = 0;
+    if (self.currentImage) {
+        imageWidth = self.currentImage.size.width + _leftForText;
+        titleWidth = [self.currentTitle tq_getWidthWithFont:self.titleLabel.font constrainedToSize:CGSizeMake(CGFLOAT_MAX, 30)] + _rightFotImg;
+        [self setTitleEdgeInsets:UIEdgeInsetsMake(0, -imageWidth, 0, imageWidth)];
+        [self setImageEdgeInsets:UIEdgeInsetsMake(0, titleWidth, 0, -titleWidth)];
+    }
+
+}
+
+
+
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -61,3 +74,4 @@
 */
 
 @end
+
