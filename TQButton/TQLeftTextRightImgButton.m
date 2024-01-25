@@ -1,14 +1,14 @@
 //
-//  TQ_LeftTextRightImgButton.m
+//  TQLeftTextRightImgButton.m
 //  hqedu24olapp
 //
 //  Created by litianqi on 2024/1/25.
 //  Copyright © 2024 edu24ol. All rights reserved.
 //
 
-#import "TQ_LeftTextRightImgButton.h"
+#import "TQLeftTextRightImgButton.h"
 
-@implementation TQ_LeftTextRightImgButton
+@implementation TQLeftTextRightImgButton
 
 - (void)layoutSubviews
 {

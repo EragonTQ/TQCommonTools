@@ -1,5 +1,5 @@
 //
-//  TQ_LeftTextRightImgButton.h
+//  TQLeftTextRightImgButton.h
 //  hqedu24olapp
 //
 //  Created by litianqi on 2024/1/25.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TQ_LeftTextRightImgButton : UIButton
+@interface TQLeftTextRightImgButton : UIButton
 @property (nonatomic, assign) CGFloat leftForText;
 @property (nonatomic, assign) CGFloat rightFotImg;
 
