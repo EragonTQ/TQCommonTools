@@ -60,7 +60,7 @@ static inline UIWindow *TQ_keyWindow()
 
 /** view */
 @property (nonatomic, strong) UIView *bottomContainter;
-@property (nonatomic, strong) UIView *maskView;
+@property (nonatomic, strong) UIView *blackMaskView;
 
 @property (nonatomic, strong) UIView *titleView;
 /** TQSheetViewConfig */
@@ -265,7 +265,7 @@ static inline UIWindow *TQ_keyWindow()
 {
     self.hidden = NO;
     [UIView animateWithDuration:0.25 animations:^{
-        self.maskView.alpha = 1;
+        self.blackMaskView.alpha = 1;
       } completion:^(BOOL finished) {
            self.bottomContainter.transform = CGAffineTransformMakeTranslation(0, self.bottomContainter.bounds.size.height);
           [UIView animateWithDuration:0.25 animations:^{
@@ -283,10 +283,10 @@ static inline UIWindow *TQ_keyWindow()
         self.bottomContainter.transform = CGAffineTransformMakeTranslation(0, self.bottomContainter.bounds.size.height);
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.25 animations:^{
-            self.maskView.alpha = 0;
+            self.blackMaskView.alpha = 0;
           } completion:^(BOOL finished) {
               self.bottomContainter.transform = CGAffineTransformIdentity;
-              self.maskView.alpha = 1;
+              self.blackMaskView.alpha = 1;
               self.hidden = YES;
           }];
     }];
