@@ -91,10 +91,10 @@ static inline UIWindow *TQ_keyWindow()
 - (instancetype)initWithFrame:(CGRect)frame  config:(TQSheetViewConfig *)config
 {
     if (self = [super initWithFrame:frame]) {
-        _maskView = [[UIView alloc] initWithFrame:frame];
-        _maskView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.6];
-        [self addSubview:_maskView];
-        [_maskView mas_makeConstraints:^(MASConstraintMaker *make) {
+        _blackMaskView = [[UIView alloc] initWithFrame:frame];
+        _blackMaskView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.6];
+        [self addSubview:_blackMaskView];
+        [_blackMaskView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.trailing.top.bottom.mas_equalTo(0);
         }];
         
